@@ -1,0 +1,107 @@
+doctype html
+html(lang="KO")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no")
+    title MATRIX_CALCULATOR
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css")
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Jua&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap", rel="stylesheet")
+    link(rel="apple-touch-icon", sizes="57x57", href="../img/favicon/apple-icon-57x57.png")
+    link(rel="apple-touch-icon", sizes="60x60", href="../img/favicon/apple-icon-60x60.png")
+    link(rel="apple-touch-icon", sizes="72x72", href="../img/favicon/apple-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="76x76", href="../img/favicon/apple-icon-76x76.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="../img/favicon/apple-icon-114x114.png")
+    link(rel="apple-touch-icon", sizes="120x120", href="../img/favicon/apple-icon-120x120.png")
+    link(rel="apple-touch-icon", sizes="144x144", href="../img/favicon/apple-icon-144x144.png")
+    link(rel="apple-touch-icon", sizes="152x152", href="../img/favicon/apple-icon-152x152.png")
+    link(rel="apple-touch-icon", sizes="180x180", href="../img/favicon/apple-icon-180x180.png")
+    link(rel="icon", type="image/png", sizes="192x192",  href="../img/favicon/android-icon-192x192.png")
+    link(rel="icon", type="image/png", sizes="32x32", href="../img/favicon/favicon-32x32.png")
+    link(rel="icon", type="image/png", sizes="96x96", href="../img/favicon/favicon-96x96.png")
+    link(rel="icon", type="image/png", sizes="16x16", href="../img/favicon/favicon-16x16.png")
+    link(rel="manifest", href="../img/favicon/manifest.json")
+    meta(name="msapplication-TileColor", content="#ffffff")
+    meta(name="msapplication-TileImage", content="../img/favicon/ms-icon-144x144.png")
+    meta(name="theme-color", content="#ffffff")
+    link(rel="stylesheet", href="../css/matrix_calculator.css")
+  body
+    div#sticker 포트폴리오 용으로 제작 되었습니다.
+    header
+      section.title_part
+        h1 MATRIX CALCULATOR
+          .header_rect_1 
+          .header_rect_2 
+          .header_rect_3
+        div.header_bar
+      section.control_part
+        section.control_first
+          p.first_name A
+          p.first_row ROW :
+          input#first_number_row.first_number_row(type="text", name="first_number_row")
+          article#spinner_first.spinner_first
+            i.xi-caret-up-square-o
+            i.xi-caret-down-square-o
+            i.xi-caret-up-square-o
+            i.xi-caret-down-square-o
+          p.first_column COLUMN :
+          input#first_number_col.first_number_col(type="text", name="first_number_col")
+          button#first_output.first_output OUTPUT
+          button#first_random.first_random RANDOM
+        section.control_second
+          p.second_name B
+          p.second_row ROW :
+          input#second_number_row.second_number_row(type="text", name="second_number_row")
+          article#spinner_second.spinner_second
+            i.xi-caret-up-square-o
+            i.xi-caret-down-square-o
+            i.xi-caret-up-square-o
+            i.xi-caret-down-square-o
+          p.second_column COLUMN :
+          input#second_number_col.second_number_col(type="text", name="second_number_col")
+          button#second_output.second_output OUTPUT
+          button#second_random.second_random RANDOM
+        section.control_result
+          section.btn_module
+            button#btn_plus.btn_plus 
+              i.xi-plus.icon_plus
+            button#btn_minus.btn_minus
+              i.xi-minus.icon_minus
+            button#btn_multiply.btn_multiply
+              i.xi-close.icon_multiply
+            button#btn_reset.btn_reset RESET
+          button#detail_result.detail_result 결과 자세히 보기
+            i.xi-caret-down
+    article.center_line 
+    main
+      section.table_first
+        .top_left.line_first
+        .top_right.line_first
+        .bottom_right.line_first
+        .bottom_left.line_first
+        form#inner_first.inner_first
+      section.table_second
+        .top_left.line_second
+        .top_right.line_second
+        .bottom_right.line_second
+        .bottom_left.line_second
+        form#inner_second.inner_second
+      section.table_result
+        .top_left.line_result
+        .top_right.line_result
+        .bottom_right.line_result
+        .bottom_left.line_result
+        form#inner_result.inner_result
+    article#detail_box.detail_box
+      div.detail_rect_1
+      div.detail_rect_2
+      div.detail_rect_3 
+      div.detail_rect_4 
+      div.detail_rect_5 
+      div.detail_rect_6 
+      div.detail_rect_7
+      div.detail_rect_8 
+    i.xi-close-circle-o.close_detail
+    script(type="text/javascript", src="../js/matrix_calculator.js")

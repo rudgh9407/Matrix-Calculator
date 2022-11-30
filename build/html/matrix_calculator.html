@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="KO">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>MATRIX_CALCULATOR</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Jua&amp;family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="../img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../css/matrix_calculator.css">
+  </head>
+  <body>
+    <div id="sticker">포트폴리오 용으로 제작 되었습니다.</div>
+    <header>
+      <section class="title_part">
+        <h1>MATRIX CALCULATOR
+          <div class="header_rect_1"> </div>
+          <div class="header_rect_2"> </div>
+          <div class="header_rect_3"></div>
+        </h1>
+        <div class="header_bar"></div>
+      </section>
+      <section class="control_part">
+        <section class="control_first">
+          <p class="first_name">A</p>
+          <p class="first_row">ROW :</p>
+          <input class="first_number_row" id="first_number_row" type="text" name="first_number_row">
+          <article class="spinner_first" id="spinner_first"><i class="xi-caret-up-square-o"></i><i class="xi-caret-down-square-o"></i><i class="xi-caret-up-square-o"></i><i class="xi-caret-down-square-o"></i></article>
+          <p class="first_column">COLUMN :</p>
+          <input class="first_number_col" id="first_number_col" type="text" name="first_number_col">
+          <button class="first_output" id="first_output">OUTPUT</button>
+          <button class="first_random" id="first_random">RANDOM</button>
+        </section>
+        <section class="control_second">
+          <p class="second_name">B</p>
+          <p class="second_row">ROW :</p>
+          <input class="second_number_row" id="second_number_row" type="text" name="second_number_row">
+          <article class="spinner_second" id="spinner_second"><i class="xi-caret-up-square-o"></i><i class="xi-caret-down-square-o"></i><i class="xi-caret-up-square-o"></i><i class="xi-caret-down-square-o"></i></article>
+          <p class="second_column">COLUMN :</p>
+          <input class="second_number_col" id="second_number_col" type="text" name="second_number_col">
+          <button class="second_output" id="second_output">OUTPUT</button>
+          <button class="second_random" id="second_random">RANDOM</button>
+        </section>
+        <section class="control_result">
+          <section class="btn_module">
+            <button class="btn_plus" id="btn_plus"> <i class="xi-plus icon_plus"></i></button>
+            <button class="btn_minus" id="btn_minus"><i class="xi-minus icon_minus"></i></button>
+            <button class="btn_multiply" id="btn_multiply"><i class="xi-close icon_multiply"></i></button>
+            <button class="btn_reset" id="btn_reset">RESET</button>
+          </section>
+          <button class="detail_result" id="detail_result">결과 자세히 보기<i class="xi-caret-down"></i></button>
+        </section>
+      </section>
+    </header>
+    <article class="center_line"> </article>
+    <main>
+      <section class="table_first">
+        <div class="top_left line_first"></div>
+        <div class="top_right line_first"></div>
+        <div class="bottom_right line_first"></div>
+        <div class="bottom_left line_first"></div>
+        <form class="inner_first" id="inner_first"></form>
+      </section>
+      <section class="table_second">
+        <div class="top_left line_second"></div>
+        <div class="top_right line_second"></div>
+        <div class="bottom_right line_second"></div>
+        <div class="bottom_left line_second"></div>
+        <form class="inner_second" id="inner_second"></form>
+      </section>
+      <section class="table_result">
+        <div class="top_left line_result"></div>
+        <div class="top_right line_result"></div>
+        <div class="bottom_right line_result"></div>
+        <div class="bottom_left line_result"></div>
+        <form class="inner_result" id="inner_result"></form>
+      </section>
+    </main>
+    <article class="detail_box" id="detail_box">
+      <div class="detail_rect_1"></div>
+      <div class="detail_rect_2"></div>
+      <div class="detail_rect_3"> </div>
+      <div class="detail_rect_4"> </div>
+      <div class="detail_rect_5"> </div>
+      <div class="detail_rect_6"> </div>
+      <div class="detail_rect_7"></div>
+      <div class="detail_rect_8"> </div>
+    </article><i class="xi-close-circle-o close_detail"></i>
+    <script type="text/javascript" src="../js/matrix_calculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,611 @@
+@charset "UTF-8";
+* { // style 초기화
+  margin: 0; 
+  padding: 0; 
+  font-size: 10px;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+$color_1: #FFEFB6;
+$color_2: #FFB6B8;
+$color_3: #A2B5BF;
+$color_4: #5F8CA3;
+$color_5: #C44C51;
+
+@mixin box($_weight, $_height){
+  width: $_weight;
+  height: $_height;
+}
+@mixin hover_btn {
+  background: $color_1;
+  color: $color_4;
+  transition: all 0.1s ease;
+}
+@mixin hover_result_btn {
+  background: $color_1;
+  color: $color_4;
+  transition: all 0.5s ease;
+  transform: scale(2) translateY(-1.3rem);
+}
+@mixin flex_box($_display, $_flow: row nowrap, $_content: flex_start, $_items: stretch ){
+  display: $_display;
+  flex-flow: $_flow;
+  justify-content: $_content;
+  align-items: $_items;
+}
+@mixin base_text($_color: black, $_align: initial, $_height: normal) {
+  color: $_color;
+  text-align: $_align;
+  line-height: $_height;
+}
+@keyframes header_bar {
+  0% {
+    left: -5rem;
+    width: 5rem;
+  }
+  50% {
+    left: calc(50% - 37.5rem);
+    width: 75rem;
+    background: $color_2;
+  }
+  100% {
+    left: 100%;
+    width: 5rem;
+  }
+}
+@keyframes header_color {
+  0% {
+    color:$color_4;
+  }
+  50% {
+    color: $color_1;
+    text-shadow: 0.5rem 0.5rem 0.5rem $color_4;
+  }
+  100% {
+    color: $color_4;
+  }
+}
+@keyframes rect_left {
+  0% {top : -5rem}
+  80% {top: -5rem}
+  100% {top : 8rem}
+}
+@keyframes rect_right {
+  0% {top : 8rem}
+  80% {top: 8rem}
+  100% {top : -5rem}
+}
+@keyframes rect_top {
+  0% {right : -5rem}
+  19% {right: -5rem}
+  80% {right : 75rem}
+  100% {right : 75rem}
+}
+@keyframes detail_rect_1 {
+  0% {left: -5rem}
+  32% {left: 100%}
+  100% {left: 100%}
+}
+@keyframes detail_rect_2 {
+  0% {right: -5rem}
+  32% {right: 100%}
+  100% {right: 100%}
+}
+@keyframes detail_rect_3_4 {
+  0% {top: -5rem}
+  30% {top: -5rem}
+  52% {top: 100%}
+  100% {top: 100%}
+}
+@keyframes detail_rect_5 {
+  0% {left: -5rem}
+  50% {left: -5rem}
+  82% {left: 100%}
+  100% {left: 100%}
+}
+@keyframes detail_rect_6 {
+  0% {right: -5rem}
+  50% {right: -5rem}
+  82% {right: 100%}
+  100% {right: 100%}
+}
+@keyframes detail_rect_7_8 {
+  2% {top: 100%}
+  80% {top: 100%}
+  100% {top: -5rem}
+}
+
+body {
+  @include box(100%, 61rem);
+  @include flex_box(flex, column nowrap);
+  overflow: hidden;
+  #sticker {
+    position: absolute;
+    width: 20vw;
+    height: 2vw;
+    line-height: 2vw;
+    font-weight: 300;
+    font-size: 1vw;
+    font-family: 'Jua', sans-serif;
+    color: #FFF;
+    background-color: #F65;
+    top: 4.5vw;
+    right: -4.5vw;
+    text-align: center;
+    transform-origin: center center;
+    transform: rotate(45deg);
+  }
+  &>i[class^="snow"] {
+    @include box(3rem, 3rem);
+    position: absolute;
+    top: -20%;
+    color: #FFEFB6;
+    font-size: 2rem;
+    z-index: -9999;
+  }
+  header {
+    @include box(120rem, 24.5rem);
+    margin: 0 auto;
+    overflow: hidden;
+    .title_part {
+      position: relative;
+      @include box(100%, 10rem);
+      h1 {
+        @include box(75rem, 8rem);
+        @include base_text($color_4, center, 8rem);
+        margin: 1rem auto;
+        font-size: 7rem;
+        position: relative;
+        overflow: hidden;
+        animation: header_color 5s ease-in-out infinite;
+        div {
+          position: absolute;
+          background: $color_2;
+        }
+        .header_rect_1 {
+          @include box(0.3rem, 5rem);
+          top: -5rem;
+          left: 0rem;
+          animation: rect_left 5s -2.6s infinite;
+        }
+        .header_rect_2 {
+          @include box(5rem, 0.3rem);
+          top: 0rem;
+          right: -5rem;
+          animation: rect_top 5s 2.7s infinite;
+        }
+        .header_rect_3 {
+          @include box(0.3rem, 5rem);
+          top: 8rem;
+          right: 0;
+          animation: rect_right 5s -1s infinite;
+        }
+      }
+      .header_bar {
+        @include box(5rem, 0.3rem);
+        background: #FFF;
+        position: absolute;
+        left: -5rem;
+        bottom: 2rem;
+        animation: header_bar 5s ease-in-out infinite;
+      }
+    }
+    .control_part {
+      @include box(110rem, 11.25rem);
+      margin: 2.5rem auto;
+      @include flex_box(flex, row wrap, space-between);
+      .control_first {
+        @include box(28rem, 10rem);
+        @include flex_box(flex, column wrap, space-between);
+        .first_name {
+          @include box(10rem, 100%);
+          @include base_text($color_4, center, 10rem);
+          order: 1;
+          font: {
+            size: 7rem;
+            weight: 900;
+          }
+          transition: all 0.3s linear;
+        }
+        .first_row, .first_column {
+          @include box(10rem, 3rem);
+          @include base_text($color_4, right);
+          order: 2;
+          font: {
+            size: 2rem;
+            weight: 900;
+          }
+        }
+        .first_column {
+          order: 3;
+        }
+        .first_number_row, .first_number_col {
+          @include box(3.8rem, 2.4rem);
+          @include base_text($color_4, center, 2.4rem);
+          border: 0.3rem solid $color_4;
+          border-radius: 1rem;
+          order: 5;
+          cursor: pointer;
+          font: {
+            size: 1.6rem;
+            weight: 600;
+          }
+          margin: {
+            top: -0.3rem;
+            left: 2rem;
+          }
+        }
+        .first_number_col {
+          order: 6;
+        }
+        .spinner_first {
+          @include box(1.5rem, 3rem);
+          @include flex_box(flex, column nowrap, flex_start, center);
+          order: 8;
+          margin: {
+            top: -0.35rem;
+            left: -1.5rem;
+          }
+          i {
+            @include box(1.5rem, 1.5rem);
+            @include base_text($color_2, center);
+            cursor: pointer;
+            font: {
+              size: 1.6rem;
+              weight: 900;
+            }
+            &:nth-child(3) {
+              margin-top: 0.5rem;
+            }
+            &:hover {
+              color: $color_5;
+              text-shadow: 0.1rem 0.1rem 0 $color_2;
+            }
+          }
+        }
+        .first_random, .first_output {
+          @include box(8rem, 3rem);
+          background: $color_2;
+          color: #FFF;
+          border-radius: 0.5rem;
+          transition: all 0.1s linear;
+          order: 7;
+          cursor: pointer;
+          font: {
+            size: 1.4rem;
+            weight: 900;
+          }
+          &:hover {
+            @include hover_btn();
+          }
+        }
+        .first_output {
+          order: 4;
+          background-color: $color_3;
+        }
+      }
+      .control_second {
+        @include box(28rem, 10rem);
+        @include flex_box(flex, column wrap, space-between);
+        .second_name {
+          @include box(10rem, 100%);
+          @include base_text($color_4, center, 10rem);
+          order: 1;
+          font: {
+            size: 7rem;
+            weight: 900;
+          }
+          transition: all 0.3s linear;
+        }
+        .second_row, .second_column {
+          @include box(10rem, 3rem);
+          @include base_text($color_4, right);
+          order: 2;
+          font: {
+            size: 2rem;
+            weight: 900;
+          }
+        }
+        .second_column {
+          order: 3;
+        }
+        .spinner_second {
+          @include box(1.5rem, 3rem);
+          @include flex_box(flex, column nowrap, flex_start, center);
+          order: 8;
+          margin: {
+            top: -0.35rem;
+            left: -1.5rem;
+          }
+          i {
+            @include box(1.5rem, 1.5rem);
+            @include base_text($color_2, center);
+            cursor: pointer;
+            font: {
+              size: 1.6rem;
+              weight: 900;
+            }
+            &:nth-child(3) {
+              margin-top: 0.5rem;
+            }
+            &:hover {
+              color: $color_5;
+              text-shadow: 0.1rem 0.1rem 0 $color_5;
+            }
+          }
+        }
+        .second_number_row, .second_number_col {
+          @include box(3.8rem, 2.4rem);
+          @include base_text($color_4, center, 2.4rem);
+          border: 0.3rem solid $color_4;
+          border-radius: 1rem;
+          cursor: pointer;
+          order: 5;
+          font: {
+            size: 1.6rem;
+            weight: 600;
+          }
+          margin: {
+            top: -0.3rem;
+            left: 2rem;
+          }
+        }
+        .second_number_col {
+          order: 6;
+        }
+        .second_random, .second_output {
+          @include box(8rem, 3rem);
+          background: $color_2;
+          color: #FFF;
+          border-radius: 0.5rem;
+          transition: all 0.1s linear;
+          order: 7;
+          cursor: pointer;
+          font: {
+            size: 1.4rem;
+            weight: 900;
+          }
+          &:hover {
+            @include hover_btn();
+          }
+        }
+        .second_output {
+          order: 4;
+          background-color: $color_3;
+        }
+      }
+      .control_result {
+        @include box(29rem, 10rem);
+        @include flex_box(flex, column nowrap, space-around, center);
+        .btn_module {
+          @include box(29rem, 7rem);
+          @include flex_box(flex, row nowrap, space-between, center);
+          button {
+            @include box(5rem, 5rem);
+            background: $color_3;
+            color: #FFF;
+            border-radius: 0.5rem;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            i{
+              font: {
+                size: 3rem;
+                weight: 900;
+              }
+            }
+            &:hover {
+              @include hover_btn();
+            }
+          }
+          .btn_reset {
+            @include box(8rem, 3rem);
+            background: $color_2;
+            font: {
+              size: 1.4rem;
+              weight: 900;
+            }
+          }
+        }
+        .detail_result {
+          @include box(29rem, 2rem);
+          background: $color_1;
+          color: $color_4;
+          padding-left: 1rem;
+          border-radius: 0.8rem;
+          transition: all 0.5s ease;
+          cursor: pointer;
+          font: {
+            size: 1.3rem;
+            weight: 600;
+            family: 'Noto Sans KR', sans-serif;
+          }
+          i {
+            margin-left: 1rem;
+            font-size: 1.3rem;
+          }
+          &:hover {
+            background: $color_3;
+            color: $color_1;
+          }
+        }
+      }
+    }
+  }
+  .detail_box {
+    @include box(114rem, 0);
+    @include flex_box(flex, row wrap, space-around);
+    position: absolute;
+    background: transparent;
+    top: 62rem;
+    right: 50%;
+    margin-right: -57rem;
+    transition: all 1s ease;
+    visibility: hidden;
+    overflow: hidden;
+    p {
+      @include box(11%, auto);
+      @include base_text($color_5, center);
+      font-weight: 900;
+    }
+    &>div {
+      background-color: $color_2;
+      position: absolute;
+      &:nth-child(1) { 
+        @include box(5rem, 0.5rem);
+        left: -5rem;
+        animation: detail_rect_1 8s ease-in-out infinite;
+      }
+      &:nth-child(2) { 
+        @include box(5rem, 0.5rem);
+        right: -5rem;
+        animation: detail_rect_2 8s ease-in-out infinite;
+      }
+      &:nth-child(3) { 
+        @include box(0.5rem, 5rem);
+        top: -5rem;
+        left: 0;
+        animation: detail_rect_3_4 8s ease-in-out infinite;
+      }
+      &:nth-child(4) { 
+        @include box(0.5rem, 5rem);
+        top: -5rem;
+        right: 0;
+        animation: detail_rect_3_4 8s ease-in-out infinite;
+      }
+      &:nth-child(5) { 
+        @include box(5rem, 0.5rem);
+        bottom: 0;
+        left: -5rem;
+        animation: detail_rect_5 8s ease-in-out infinite;
+      }
+      &:nth-child(6) { 
+        @include box(5rem, 0.5rem);
+        bottom: 0;
+        right: -5rem;
+        animation: detail_rect_6 8s ease-in-out infinite;
+      }
+      &:nth-child(7) { 
+        @include box(0.5rem, 5rem);
+        top: 100%;
+        left: 0;
+        animation: detail_rect_7_8 8s ease-in-out infinite;
+      }
+      &:nth-child(8) { 
+        @include box(0.5rem, 5rem);
+        bottom: 100%;
+        right: 0;
+        animation: detail_rect_7_8 8s ease-in-out infinite;
+      }
+    }
+  }
+  &>.close_detail {
+    @include box(5rem, 3rem);
+    position: absolute;
+    top: 60.3rem;
+    right: 1rem;
+    color: $color_5;
+    visibility: hidden;
+    animation: header_color 2s ease infinite;
+    cursor: pointer;
+    font: {
+      size: 4rem;
+      weight: 700;
+    }
+  }
+  &>.center_line {
+    @include box(100%, 0.5rem);
+    background: $color_4;
+  }
+  main {
+    @include box(120rem, 35rem);
+    margin: 0 auto;
+    @include flex_box(flex, row nowrap, space-around, flex-end);
+    &>section {
+      @include box(33rem, 33rem);
+      position: relative;
+      &>div {
+        @include box(5rem, 5rem);
+        background: transparent;
+        position: absolute;
+        transition: all 0.2s ease-out;
+      }
+      .top_left {
+        top: -0.5rem;
+        left: -0.5rem;
+        border: {
+          top: 0.3rem solid $color_4;
+          left: 0.3rem solid $color_4;
+        }
+      }
+      .top_right {
+        top: -0.5rem;
+        right: -0.5rem;
+        border: {
+          top: 0.3rem solid $color_4;
+          right: 0.3rem solid $color_4;
+        }
+      }
+      .bottom_right {
+        bottom: -0.5rem;
+        right: -0.5rem;
+        border: {
+          bottom: 0.3rem solid $color_4;
+          right: 0.3rem solid $color_4;
+        }
+      }
+      .bottom_left {
+        bottom: -0.5rem;
+        left: -0.5rem;
+        border: {
+          bottom: 0.3rem solid $color_4;
+          left: 0.3rem solid $color_4;
+        }
+      }
+      &>form {
+        @include box(100%, 100%);
+        @include flex_box(flex, column wrap, space-around, center);
+        background: transparent;
+        overflow: hidden;
+        position: relative;
+        &>div {
+          @include box(100%, 30%);
+          @include flex_box(flex, row nowrap, space-around, center);
+          background: transparent;
+          &>input {
+            position: relative;
+            z-index: 1000;
+            border: 0.1rem solid $color_4;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+          }
+          & div {
+            position: relative;
+            z-index: 1000;
+            border: 0.1rem solid $color_4;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background: white;
+            cursor: zoom-in;
+            & input {
+              @include box(100%, 100%);
+              z-index: 2000;
+              border: 0;
+              text-align: center;
+              font-weight: 500;
+              position: absolute;
+              background: transparent;
+              transition: all 0.2s linear;
+              cursor: zoom-in;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
